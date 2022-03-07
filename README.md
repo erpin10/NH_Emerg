@@ -22,8 +22,7 @@ This repository contains the code required to evaluate the impact of select nurs
 8. [Model Testing](#model-testing)
 9. [Model Evaluation & Validation](#model-eval-and-valid)
 
-<a name="abstract"/>
-## Abstract 
+# Abstract 
 ### Context
 As of 2016, approximately 11% of the United States 85 years and older population live within nursing homes on a long-term basis, 69% of which have at least one disability that affects their quality of life – hearing, vision, cognitive, ambulation (Roberts et al., 2018). Frequent unplanned avoidable and unavoidable transfers from the nursing home to the emergency department can further negatively impact residents’ health status, can hinder care due to gaps in communication during transition, and can be costly for Medicaid programs (Moccia & Keyes, 2021; Walsh et al., 2010). Utilizing machine learning techniques, the relationship between operational, clinical and safety nursing home quality attributes and rate of emergency department visits for long-stay patients from the facility will be explored.
 ### Problem Statement
