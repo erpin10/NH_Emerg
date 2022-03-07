@@ -20,6 +20,7 @@ This repository contains the code required to evaluate the impact of select nurs
 6. [Assumption Testing](#assumptions)
 7. [Model Building](#model-build)
 8. [Model Testing](#model-testing)
+9. [Model Evaluation & Validation](#model-eval-and-valid)
 
 
 ## Abstract 
@@ -254,8 +255,40 @@ n_estimators = 750 was observed to improve MAE, RMSE and R^2 performance.
 
 colsample_bynode = 0.1 was observed to improve MAE and RMSE, however R^2 performance was noted to increase with an increased number of features. However, 0.1 was retained to preserve a more desirable MAE/RMSE. 
 
-The model was redefined using n_estimator = 750 and retaining colsample_bynode = 0.1 then fit. The model was then used to predict the dependent values, compared against the actual testing set then plotted below: 
+The model was redefined using n_estimator = 750 and retaining colsample_bynode = 0.1 then fit. 
 
-![rfxgb_predictions](https://user-images.githubusercontent.com/99699157/157056300-2e81f5f1-4032-46dd-a3ee-03ece275bc7a.png)
+The xgboosted random forest regression model was then used to predict the dependent values, compared against the actual testing set then plotted below: 
 
+![rfxgb_predictions](https://user-images.githubusercontent.com/99699157/157058645-93426de8-d33e-4325-acfe-8ba0e244cbbf.png)
 
+# Model Evaluation & Validation 
+### Stepwise Linear Regression
+Mean Absolute Error (MAE), Root Mean Squared Error (RMSE) and R^2 were used to evaluate the model. For this model, the evaluation metric values were as follows: 
+- MAE: 0.04526530738707251
+- R^2: 0.27676391504288367
+- RMSE: 0.0036011681359969148
+
+Mean Absolute Error measures the accuracy of the model. A MAE of 0.045 signifies that the model is generally accurate, and closely able to predict the actual values. <br>
+R^2 measures the amount of variation that can be explained by the model and currently is at 27%, which means that only 27% of model predictions are correct. <br>
+The Root Mean Squared Error shows the spread of the residual errors. A value of 0.003 shows that the model has good performance. <br>
+
+### Random Forest Regression with XG Boost 
+Mean Absolute Error (MAE), Root Mean Squared Error (RMSE) and R^2 were used to evaluate the model. For this model, the evaluation metric values were as follows: 
+MAE 0.2996527688997647
+R^2 0.20373157176230627
+RMSE 0.16406031743342978
+
+Mean Absolute Error measures the accuracy of the model. A MAE of 0.3 signifies that the model is generally accurate, and able to predict actual values. <br>
+R^2 measures the amount of variation that can be explained by the model and currently is at 20%, which means that only 20% of model predictions are correct. <br>
+The Root Mean Squared Error shows the spread of the residual errors. A value of 0.16 shows that the model has decent performance. <br>
+
+Feature importances were extracted from the model using the feature_importances_ function of xgboost. This was plotted below: 
+
+![rfxgb_featureimportance](https://user-images.githubusercontent.com/99699157/157059173-cd92a3be-a1d5-4b52-ba4c-e6bce66b9051.png)
+
+The feature importance score indicates how valuable each feature was in constructing the boosted decision tree in the final model. As can be seen above, the following attributes were the most useful in constructed the decision tree: 
+- Long-Stay QM Rating
+- Average Number of Residents Per Day
+- Percentage of low risk long-stay residents who lose control of their bowels or bladder
+- Total nursing staff turnover 
+- Adjusted RN Staffing Hours per Resident per Day
