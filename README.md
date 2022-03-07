@@ -145,7 +145,7 @@ The null values for each attribute were checked and were deemed acceptable. Data
 #### Normality of Predictor Distributions 
 Skewed and non-normal attributes were log transformed using numpy: 
 
-![Heatmap_2](https://user-images.githubusercontent.com/99699157/157040930-fde05923-a178-43d6-8c16-831c71996be8.png)
+![Histograms_Trans](https://user-images.githubusercontent.com/99699157/157059507-227eb4e5-7fb8-476c-9377-237effab5997.png)
 
 On visual inspection, distributions remained non-normal for the majority of the attributes. 
 
