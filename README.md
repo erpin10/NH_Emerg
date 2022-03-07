@@ -4,6 +4,7 @@ author: Erica Pinto
 ## Repository Contents
 This repository contains the code required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States utilizing a Stepwise Linear Regression Model and a XGBoosted Random Forest Regression Model. 
 
+### Nursing Homes within the United States: 
 ![CMS_NH_Map](https://user-images.githubusercontent.com/99699157/156967715-5ac8c81f-924c-48b5-b8a9-e4f149dae4b6.png)<br>
  Reference: https://data.cms.gov/covid-19/covid-19-nursing-home-data
 
