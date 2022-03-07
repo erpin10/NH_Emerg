@@ -28,15 +28,15 @@ This repository contains the code required to evaluate the impact of select nurs
 As of 2016, approximately 11% of the United States 85 years and older population live within nursing homes on a long-term basis, 69% of which have at least one disability that affects their quality of life – hearing, vision, cognitive, ambulation (Roberts et al., 2018). Frequent unplanned avoidable and unavoidable transfers from the nursing home to the emergency department can further negatively impact residents’ health status, can hinder care due to gaps in communication during transition, and can be costly for Medicaid programs (Moccia & Keyes, 2021; Walsh et al., 2010). Utilizing machine learning techniques, the relationship between operational, clinical and safety nursing home quality attributes and rate of emergency department visits for long-stay patients from the facility will be explored.
 ### Problem Statement
 Research questions for this study are as follows:
-Which of the following attributes affect outpatient emergency department visits from nursing homes for long-stay patients?
-• Nursing home facility ownership type (for-profit versus government-owned)
-• Bed numbers and bed occupancy rate
-• Adjusted staffing hours per day across all nursing disciplines and turnover rate
-• Reported incidents: facility-reported incidents, substantiated complaints, infection control citations
-• Long-stay patient quality rating
-• Inspection survey outcomes on 2 domains: health deficiencies and fire safety
-• MDS 3.0 clinical measures for long-stay patients
-• COVID-19 incidence and death rates
+Which of the following attributes affect outpatient emergency department visits from nursing homes for long-stay patients? <br>
+• Nursing home facility ownership type (for-profit versus government-owned)<br>
+• Bed numbers and bed occupancy rate<br>
+• Adjusted staffing hours per day across all nursing disciplines and turnover rate<br>
+• Reported incidents: facility-reported incidents, substantiated complaints, infection control citations<br>
+• Long-stay patient quality rating<br>
+• Inspection survey outcomes on 2 domains: health deficiencies and fire safety<br>
+• MDS 3.0 clinical measures for long-stay patients<br>
+• COVID-19 incidence and death rates<br>
 Through utilization of machine learning techniques, is it possible to predict which of the above features impact return to outpatient emergency department incidence?
 ### Data
 Nursing home demographics and attributes are from:
