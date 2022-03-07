@@ -29,21 +29,21 @@ As of 2016, approximately 11% of the United States 85 years and older population
 ### Problem Statement
 Research questions for this study are as follows:
 Which of the following attributes affect outpatient emergency department visits from nursing homes for long-stay patients? <br>
-• Nursing home facility ownership type (for-profit versus government-owned)<br>
-• Bed numbers and bed occupancy rate<br>
-• Adjusted staffing hours per day across all nursing disciplines and turnover rate<br>
-• Reported incidents: facility-reported incidents, substantiated complaints, infection control citations<br>
-• Long-stay patient quality rating<br>
-• Inspection survey outcomes on 2 domains: health deficiencies and fire safety<br>
-• MDS 3.0 clinical measures for long-stay patients<br>
-• COVID-19 incidence and death rates<br>
+- Nursing home facility ownership type (for-profit versus government-owned)<br>
+- Bed numbers and bed occupancy rate<br>
+- Adjusted staffing hours per day across all nursing disciplines and turnover rate<br>
+- Reported incidents: facility-reported incidents, substantiated complaints, infection control citations<br>
+- Long-stay patient quality rating<br>
+- Inspection survey outcomes on 2 domains: health deficiencies and fire safety<br>
+- MDS 3.0 clinical measures for long-stay patients<br>
+- COVID-19 incidence and death rates<br>
 Through utilization of machine learning techniques, is it possible to predict which of the above features impact return to outpatient emergency department incidence?
 ### Data
 Nursing home demographics and attributes are from:
-• The Centers for Medicare & Medicaid Services (CMS) Provider Information dataset
-• The CMS MDS Quality Measures dataset
-• The CMS Medicare Survey Summary Measures dataset
-• The CMS COVID-19 dataset
+- The Centers for Medicare & Medicaid Services (CMS) Provider Information dataset
+- The CMS MDS Quality Measures dataset
+- The CMS Medicare Survey Summary Measures dataset
+- The CMS COVID-19 dataset
 Aside from facility ownership type, which is a categorical variable, the independent variables are numeric and continuous.
 The rate of outpatient emergency department visits is from the CMS Medicare Claims Quality Measures dataset (Measure Code 552). It is a numeric continuous variable that is calculated as a proportion of outpatient emergency department visits per 1000 long-stay resident days.
 ### Techniques and Tools
@@ -53,9 +53,9 @@ Python will be used across the lifecycle of this study including data preprocess
 If time permits, a neural network model may be implemented as well. Models will use an 80:20 train/test split to train, test and validate the model. In addition, the regression model will use k-fold cross-validation. 
 ### Evaluation
 Model evaluation metrics will be:
-• Root Mean Square Error
-• Mean Absolute Error
-• R2
+- Root Mean Square Error
+- Mean Absolute Error
+- R2
 
 ## Requirements
 
