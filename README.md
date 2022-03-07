@@ -1,7 +1,7 @@
 # Predicting the effect of nursing home quality measures on long-stay emergency department outpatient visits 
-Author: Erica Pinto 
-CIND820: Big Data Analytics Project
-Dr. Sedef Akinli Kocak
+Author: Erica Pinto <br>
+CIND820: Big Data Analytics Project <br>
+Dr. Sedef Akinli Kocak <br>
 
 ## Repository Contents
 This repository contains the code required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States utilizing a Stepwise Linear Regression Model and a XGBoosted Random Forest Regression Model. 
