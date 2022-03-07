@@ -109,23 +109,66 @@ The following attributes were extracted from the above datasets as the independe
 - Confirmed COVID-19 Cases Per Occupied Beds
 - COVID-19 Deaths Per Occupied Beds
 
-The dependent variable for this study was also extracted from the above data set: 
-- Number of outpatient emergency department visits per 1000 long-stay resident days
+The dependent variable for this study was also extracted from the CMS Claims Data Set: 
+- Adjusted Score (Number of outpatient emergency department visits per 1000 long-stay resident days)
 
 ## Data Cleansing 
-Attributes were validated, renamed and unnecessary columns removed. The dataset was checked for duplicates and null values. Any nursing homes with null values in their dependent variable were removed (2241 rows). 
+Attributes were validated, renamed and unnecessary columns removed. The dependent variable was renamed from Adjusted Score to 'Number of outpatient emergency department visits per 1000 long-stay resident days'. The dataset was checked for duplicates and null values. Any nursing homes with null values in their dependent variable were removed (2241 rows). 
 
 The categorical Ownership Type attribute was coded into three groups: 
-- 'Non profit':0
-- 'For profit': 1
-- 'Government' 2
+- Non profit: 0
+- For profit: 1
+- Government: 2
 
 Ownership Type and Long-Stay QM rating was then converted into dummy variables solely for the Linear Regression model.
 
 ## Data Exploration & Preprocessing 
-The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were checked. On visual inspection, it was noted that a number of attributes were not normally distributed and that there were significant scaling differences between the attributes. 
+### Linear Regression
+The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were reviewed. On visual inspection, it was noted that a number of attributes were not normally distributed and that there were significant scaling differences between the attributes. 
+
+![Histograms](https://user-images.githubusercontent.com/99699157/157036341-606b4d0c-0438-4cf3-83b4-089a46dafbf5.png)
+
 Outliers were detected utilizing boxplots. To address skew, right-skewed attributes with a skew > 3 had their >90th percentile values replaced by the median and left-skewed attributes with a skew < 3 had their <10th percentile values replaced by the median. 
-The dataset was then normalized to (0,1) address scaling issues. 
 
-## Assumption Testing 
+The dataset was then normalized to (0,1) using the min-max method to address scaling issues.
 
+### Random Forest Regression 
+The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were reviewed.
+
+## Assumption Testing
+### Linear Regression 
+#### Normality of Predictor Distributions 
+Skewed and non-normal attributes were log transformed using numpy: 
+
+![Heatmap_2](https://user-images.githubusercontent.com/99699157/157040930-fde05923-a178-43d6-8c16-831c71996be8.png)
+
+On visual inspection, distributions remained non-normal for the majority of the attributes. 
+
+#### Linearity 
+
+Scatterplots were created to visualize the relationship between the independent variables against the dependent variable. Linearity did not exist for any attribute against the dependent variable. Pearson's R coefficient was used to cross-check  and showed a lack of linearity between each individual independent variable and the dependent variable as well. 
+
+#### Multicollinearity
+Correlations were assessed and a heatmap created: 
+
+![Heatmap](https://user-images.githubusercontent.com/99699157/157040117-5cf96c46-3fd9-4aca-9208-190a4704ab89.png)
+Most attributes were not correlated or weakly correlated. Number of Certified Beds and Average Number of Residents per Day were the only attributes that were strongly correlated > 0.9. Additionally, the dummy variables of Ownership Type and Long-Stay QM wee highly correlated within themselves. Registered Nurse turnover and Total nursing staff turnover, COVID-19 deaths per occupied beds and confirmed COVID-19 cases per occupied beds, and Percentage of long-stay residents whose need for help with daily activities has increased and Percentage of long-stay residents whose ability to move independently worsened were moderately correlated at 0.67, 0.64 and 0.57 respectively.
+This was confirmed through VIF testing. 'Number of Certified Beds', 'Ownership Type 2' and 'Long STay QM Rating 5.0' were dropped from the dataset to maintain a VIF <5. 
+
+#### Normality of Error Terms 
+Visual analysis of a histogram and Q-Q plot of the error terms showed a significant non-normal distribution, which was confirmed using teh Jarque-Bera test (statistic=13859.860932864438, pvalue=0.0). 
+
+### Autocorrelation of the Error Terms 
+The Durbin-Watson test was used to test autocorrleation of the residuals. The result (1.906673615916626) showed little to no autocorrelation of the residuals in teh model, demonstrating that the errors are independent within the model. 
+
+### Homoscedasticity 
+The Het-Breuschpagan test was used to test for homoscedastcity. Based on the Lagrange multiplier statistic (403.99785553969406) and the p-value (2.114487020436578e-65), heteroscedasticity is present within the model. Thus, the residuals are not distributed with equal variance meaning that the results of the regression analysis may not be reliable. To address this, the dependent variable was log transformed and the Het-Breushpagan test was redone. However, heteroscedastcity continued to be present within the model after log transformation of the dependent variable. 
+
+### Assumping Testing Summary 
+    - Normality of predictor distributions: Failed
+    - Linearity of independent and dependant variables: Failed
+    - Mullicolinearity: Passed 
+    - Normality of error terms: Failed 
+    - Autocorrelation of error terms: Passed 
+    - Homoscedasticity: Failed 
+The results of assumption testing show that linear regression may not be the ideal test to use for this dataset. Regardless, linear regression will be conducted on the data and the effect of the failed assumptions will be considered in context of the performance of the model.
