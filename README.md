@@ -16,7 +16,7 @@ This repository contains the code required to evaluate the impact of select nurs
 2. [Requirements](#requirements)
 3. [Data Collection](#data-collection)
 4. [Data Cleansing](#data-cleansing)
-5. [Data Exploration and Preprocessing](#data-exploration-&-preprocessing)
+5. [Data Exploration and Preprocessing](#data-exploration-and-preprocessing)
 6. [Assumption Testing](#assumption-testing)
 7. [Model Building](#model-building)
 8. [Model Testing](#model-testing)
