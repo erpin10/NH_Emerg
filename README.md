@@ -134,7 +134,7 @@ Outliers were detected utilizing boxplots. To address skew, right-skewed attribu
 
 The dataset was then normalized to (0,1) using the min-max method to address scaling issues.
 
-### Random Forest Regression 
+### Random Forest Regression with XG Boost
 The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were reviewed.
 
 ## Assumption Testing
@@ -160,13 +160,13 @@ This was confirmed through VIF testing. 'Number of Certified Beds', 'Ownership T
 #### Normality of Error Terms 
 Visual analysis of a histogram and Q-Q plot of the error terms showed a significant non-normal distribution, which was confirmed using teh Jarque-Bera test (statistic=13859.860932864438, pvalue=0.0). 
 
-### Autocorrelation of the Error Terms 
+#### Autocorrelation of the Error Terms 
 The Durbin-Watson test was used to test autocorrleation of the residuals. The result (1.906673615916626) showed little to no autocorrelation of the residuals in teh model, demonstrating that the errors are independent within the model. 
 
-### Homoscedasticity 
+#### Homoscedasticity 
 The Het-Breuschpagan test was used to test for homoscedastcity. Based on the Lagrange multiplier statistic (403.99785553969406) and the p-value (2.114487020436578e-65), heteroscedasticity is present within the model. Thus, the residuals are not distributed with equal variance meaning that the results of the regression analysis may not be reliable. To address this, the dependent variable was log transformed and the Het-Breushpagan test was redone. However, heteroscedastcity continued to be present within the model after log transformation of the dependent variable. 
 
-### Assumping Testing Summary 
+#### Linear Regression Assumping Testing Summary 
     - Normality of predictor distributions: Failed
     - Linearity of independent and dependant variables: Failed
     - Mullicolinearity: Passed 
@@ -174,3 +174,59 @@ The Het-Breuschpagan test was used to test for homoscedastcity. Based on the Lag
     - Autocorrelation of error terms: Passed 
     - Homoscedasticity: Failed 
 The results of assumption testing show that linear regression may not be the ideal test to use for this dataset. Regardless, linear regression will be conducted on the data and the effect of the failed assumptions will be considered in context of the performance of the model.
+
+### Random Forest Regression with XG Boost
+Random forest regression with XG Boost has no assumptions for testing. 
+
+## Model building 
+### Linear Regression 
+A stepwise regression analysis with an alpha = 0.05 was chosen to be performed for this study. The following observations were noted from the original model prior to beginning stepwise regression: 
+- R^2 = 0.294, which remains relatively low 
+- F-value is statistically significant
+- There are multiple measures with a p-value > 0.05
+- The statsmodel regression notes state that there is potentially strong multicollinearity in model due to the condition number. 
+
+The following attributes were removed during the stepwise regression process based on a p-value > 0.05. 
+- Percentage of long-stay residents who lose too much weight
+- Number of Citations from Infection Control Inspections
+- Total Number of Health Deficiencies
+- COVID-19 Deaths Per Occupied Beds
+- Percentage of long-stay residents experiencing one or more falls with major injury
+- Percentage of long-stay residents who were physically restrained
+- Adjusted Nurse Aide Staffing Hours per Resident per Day
+- Confirmed COVID-19 Cases Per Occupied Beds
+- Registered Nurse turnover
+- Ownership Type_1
+- Percentage of long-stay residents assessed and appropriately given the seasonal influenza vaccine
+- Percentage of long-stay residents who have depressive symptoms
+- Number of Facility Reported Incidents
+- Total Number of Fire Safety Deficiencies
+
+The remaining attributes had a p-value < 0.05: 
+- Average Number of Residents per Day
+- Total nursing staff turnover
+- Adjusted LPN Staffing Hours per Resident per Day
+- Adjusted RN Staffing Hours per Resident per Day
+- Number of Substantiated Complaints
+- Percentage of high risk long-stay residents with pressure ulcers
+- Percentage of long-stay residents assessed and appropriately given the pneumococcal vaccine
+- Percentage of long-stay residents who received an antianxiety or hypnotic medication
+- Percentage of long-stay residents who received an antipsychotic medication
+- Percentage of long-stay residents whose ability to move independently worsened
+- Percentage of long-stay residents whose need for help with daily activities has increased
+- Percentage of long-stay residents with a catheter inserted and left in their bladder
+- Percentage of long-stay residents with a urinary tract infection
+- Percentage of low risk long-stay residents who lose control of their bowels or bladder
+- Ownership Type_0
+- Long-Stay QM Rating_1.0
+- Long-Stay QM Rating_2.0
+- Long-Stay QM Rating_3.0
+- Long-Stay QM Rating_4.0
+
+The final model has 16 attributees, with an R^2 of 0.293 or 29.3% of explainability. The F-Statistic remains signfiicant. See below for statsmodel summary: 
+
+![Final_Model_Summary](https://user-images.githubusercontent.com/99699157/157049424-3ba69e65-3ac3-4ec8-b415-d399d8141cfe.png)
+
+### Random Forest Regression with XG Boost
+
+
