@@ -74,7 +74,7 @@ Datasets were obtained from the CMS website at the following addresses for the y
 - CMS Survey Summary: https://data.cms.gov/provider-data/dataset/tbry-pc2d
 - CMS COVID-19 Nursing Home Data: https://data.cms.gov/covid-19/covid-19-nursing-home-data
 
-The following columns were extracted from the above datasets for construction of the dataset: 
+The following attributes were extracted from the above datasets as the independent variables within the dataset: 
 - Federal Provider Number
 - Provider Name
 - Ownership Type 
@@ -107,9 +107,8 @@ The following columns were extracted from the above datasets for construction of
 - Total Number of Fire Safety Deficiencies
 - Confirmed COVID-19 Cases Per Occupied Beds
 - COVID-19 Deaths Per Occupied Beds
-- Number of outpatient emergency department visits per 1000 long-stay resident days
 
-The dependent variable for this study was: 
+The dependent variable for this study was also extracted from the above data set: 
 - Number of outpatient emergency department visits per 1000 long-stay resident days
 
 ## Data Cleansing 
