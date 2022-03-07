@@ -16,11 +16,11 @@ This repository contains the code required to evaluate the impact of select nurs
 2. [Requirements](#requirements)
 3. [Data Collection](#data-collection)
 4. [Data Cleansing](#data-cleansing)
-5. [Data Exploration & Preprocessing](#data-exploration-&-preprocessing)
+5. [Data Exploration and Preprocessing](#data-exploration-&-preprocessing)
 6. [Assumption Testing](#assumption-testing)
 7. [Model Building](#model-building)
 8. [Model Testing](#model-testing)
-9. [Model Evaluation & Validation](#model-evaluation-and-validation)
+9. [Model Evaluation and Validation](#model-evaluation-and-validation)
 
 # Abstract 
 ### Context
@@ -128,7 +128,7 @@ The categorical Ownership Type attribute was coded into three groups:
 
 Ownership Type and Long-Stay QM rating was then converted into dummy variables solely for the Linear Regression model.
 
-## Data Exploration & Preprocessing 
+## Data Exploration and Preprocessing 
 ### Stepwise Linear Regression
 The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were reviewed. On visual inspection, it was noted that a number of attributes were not normally distributed and that there were significant scaling differences between the attributes. 
 
@@ -262,7 +262,7 @@ The xgboosted random forest regression model was then used to predict the depend
 
 ![rfxgb_predictions](https://user-images.githubusercontent.com/99699157/157058645-93426de8-d33e-4325-acfe-8ba0e244cbbf.png)
 
-# Model Evaluation & Validation 
+# Model Evaluation and Validation 
 ### Stepwise Linear Regression
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE) and R^2 were used to evaluate the model. For this model, the evaluation metric values were as follows: 
 - MAE: 0.04526530738707251
