@@ -56,7 +56,7 @@ Model evaluation metrics will be:
 - Mean Absolute Error
 - R2
 
-## Requirements
+# Requirements
 
 - Python 3.0 
 
@@ -72,7 +72,7 @@ Required packages are as follows:
 
 XGBRFRegressor from the XGBoost package was used to conduct the Random Forest Regression with XGBoost.
 
-## Data Collection 
+# Data Collection 
 ### Datasets
 Datasets were obtained from the CMS website at the following addresses for the year 2020 (as available): 
 - CMS Medicare Claims Quality Measures: https://data.cms.gov/provider-data/dataset/ijh5-nb2v
@@ -118,7 +118,7 @@ The following attributes were extracted from the above datasets as the independe
 The dependent variable for this study was also extracted from the CMS Claims Data Set: 
 - Adjusted Score (Number of outpatient emergency department visits per 1000 long-stay resident days)
 
-## Data Cleansing 
+# Data Cleansing 
 Attributes were validated, renamed and unnecessary columns removed. The dependent variable was renamed from Adjusted Score to 'Number of outpatient emergency department visits per 1000 long-stay resident days'. The dataset was checked for duplicates and null values. Any nursing homes with null values in their dependent variable were removed (2241 rows). 
 
 The categorical Ownership Type attribute was coded into three groups: 
@@ -141,7 +141,7 @@ The dataset was then normalized to (0,1) using the min-max method to address sca
 ### Random Forest Regression with XG Boost
 The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were reviewed.
 
-## Assumption Testing
+# Assumption Testing
 ### Stepwise Linear Regression
 #### Normality of Predictor Distributions 
 Skewed and non-normal attributes were log transformed using numpy: 
@@ -182,7 +182,7 @@ The results of assumption testing show that linear regression may not be the ide
 ### Random Forest Regression with XG Boost
 Random forest regression with XG Boost has no assumptions for testing. 
 
-## Model building 
+# Model building 
 ### Stepwise Linear Regression
 A stepwise regression analysis with an alpha = 0.05 was chosen to be performed for this study. The following observations were noted from the original model prior to beginning stepwise regression: 
 - R^2 = 0.294, which remains relatively low 
