@@ -2,7 +2,7 @@
 author: Erica Pinto 
 
 # Table of Contents
-1. [Repository Contents](#Repository Contents)
+1. [Repository Contents](#Repository_Contents)
 2. [Testing](#Something_else)
 
 ## Repository Contents
