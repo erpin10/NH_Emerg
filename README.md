@@ -4,7 +4,7 @@ CIND820: Big Data Analytics Project <br>
 Dr. Sedef Akinli Kocak <br>
 
 ## Repository Contents
-This repository contains the code required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States utilizing a Stepwise Linear Regression Model and a XGBoosted Random Forest Regression Model. 
+This repository contains the code required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States utilizing a Stepwise Linear Regression Model and a XG Boosted Random Forest Regression Model. 
 
 ### Nursing Homes within the United States: 
 ![CMS_NH_Map](https://user-images.githubusercontent.com/99699157/156967715-5ac8c81f-924c-48b5-b8a9-e4f149dae4b6.png)<br>
@@ -18,6 +18,8 @@ This repository contains the code required to evaluate the impact of select nurs
 4. [Data Cleansing](#data-cleanse)
 5. [Data Exploration & Preprocessing](#data-explore-and-preprocess)
 6. [Assumption Testing](#assumptions)
+7. [Model Building](#model-build)
+8. [Model Testing](#model-testing)
 
 
 ## Abstract 
@@ -125,7 +127,7 @@ The categorical Ownership Type attribute was coded into three groups:
 Ownership Type and Long-Stay QM rating was then converted into dummy variables solely for the Linear Regression model.
 
 ## Data Exploration & Preprocessing 
-### Linear Regression
+### Stepwise Linear Regression
 The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were reviewed. On visual inspection, it was noted that a number of attributes were not normally distributed and that there were significant scaling differences between the attributes. 
 
 ![Histograms](https://user-images.githubusercontent.com/99699157/157036341-606b4d0c-0438-4cf3-83b4-089a46dafbf5.png)
@@ -138,7 +140,7 @@ The dataset was then normalized to (0,1) using the min-max method to address sca
 The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were reviewed.
 
 ## Assumption Testing
-### Linear Regression 
+### Stepwise Linear Regression
 #### Normality of Predictor Distributions 
 Skewed and non-normal attributes were log transformed using numpy: 
 
@@ -179,7 +181,7 @@ The results of assumption testing show that linear regression may not be the ide
 Random forest regression with XG Boost has no assumptions for testing. 
 
 ## Model building 
-### Linear Regression 
+### Stepwise Linear Regression
 A stepwise regression analysis with an alpha = 0.05 was chosen to be performed for this study. The following observations were noted from the original model prior to beginning stepwise regression: 
 - R^2 = 0.294, which remains relatively low 
 - F-value is statistically significant
@@ -227,6 +229,33 @@ The final model has 16 attributees, with an R^2 of 0.293 or 29.3% of explainabil
 
 ![Final_Model_Summary](https://user-images.githubusercontent.com/99699157/157049424-3ba69e65-3ac3-4ec8-b415-d399d8141cfe.png)
 
+The resulting model was split into an 80:20 train/test split then fit to a linear regression model (OLS). 
+
 ### Random Forest Regression with XG Boost
+
+The 'Federal Provider Number' and 'Provider Name' attributes were dropped and the model was defined, then into an 80:20 train/test split. Initial hyperparamaters were set as follows: 
+- n_estimators=100
+- Colsample_bynode=0.2 
+
+Repeated 10-fold cross-validation with 3 repeats was then used to build the model using XGBRFRegressor from the xgboost package. 
+
+# Model Testing
+### Stepwise Linear Regression
+The stepwise linear regression model was used to predict the dependent values, compared against the actual testing set then plotted below: 
+
+![slr_predictions](https://user-images.githubusercontent.com/99699157/157053742-2dd78bcc-f2ae-4e7c-bc79-eb8dc5c00b62.png)
+
+### Random Forest Regression with XG Boost 
+Mean Absolute Error (MAE), Root Mean Squared Error (RMSE) and R^2 were used to evaluate the initial model. Hyperparamater tuning was completed based on: 
+- Number of trees (n_estimators) at 100, 250, 500, 750, 1000
+- Number of features (colsample_bynode) at 0.1, 0.2, 0.4 
+
+n_estimators = 750 was observed to improve MAE, RMSE and R^2 performance. 
+
+colsample_bynode = 0.1 was observed to improve MAE and RMSE, however R^2 performance was noted to increase with an increased number of features. However, 0.1 was retained to preserve a more desirable MAE/RMSE. 
+
+The model was redefined using n_estimator = 750 and retaining colsample_bynode = 0.1 then fit. The model was then used to predict the dependent values, compared against the actual testing set then plotted below: 
+
+![rfxgb_predictions](https://user-images.githubusercontent.com/99699157/157056300-2e81f5f1-4032-46dd-a3ee-03ece275bc7a.png)
 
 
