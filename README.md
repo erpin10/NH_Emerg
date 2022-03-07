@@ -5,14 +5,16 @@ author: Erica Pinto
 This repository contains the code required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States utilizing a Stepwise Linear Regression Model and a XGBoosted Random Forest Regression Model. 
 
 ![CMS_NH_Map](https://user-images.githubusercontent.com/99699157/156967715-5ac8c81f-924c-48b5-b8a9-e4f149dae4b6.png)<br>
- <p style="font-size:7pt">Reference: https://data.cms.gov/covid-19/covid-19-nursing-home-data </p>
+ Reference: https://data.cms.gov/covid-19/covid-19-nursing-home-data
 
 
 # Table of Contents
 1. [Abstract](#abstract)
 2. [Requirements](#req)
-3. [Datasets](#datasets)
-4. 
+3. [Data Collection](#data-collect)
+4. [Data Cleansing](#data-cleanse)
+5. [Data Exploration & Preprocessing](#data-explore-and-preprocess)
+6. [Assumption Testing](#assumptions)
 
 
 ## Abstract 
@@ -106,3 +108,24 @@ The following columns were extracted from the above datasets for construction of
 - Confirmed COVID-19 Cases Per Occupied Beds
 - COVID-19 Deaths Per Occupied Beds
 - Number of outpatient emergency department visits per 1000 long-stay resident days
+
+The dependent variable for this study was: 
+- Number of outpatient emergency department visits per 1000 long-stay resident days
+
+## Data Cleansing 
+Attributes were validated, renamed and unnecessary columns removed. The dataset was checked for duplicates and null values. Any nursing homes with null values in their dependent variable were removed (2241 rows). 
+
+The categorical Ownership Type attribute was coded into three groups: 
+- 'Non profit':0
+- 'For profit': 1
+- 'Government' 2
+
+Ownership Type and Long-Stay QM rating was then converted into dummy variables solely for the Linear Regression model.
+
+## Data Exploration & Preprocessing 
+The null values for each attribute were checked and were deemed acceptable. Data descriptions and distributions were checked. On visual inspection, it was noted that a number of attributes were not normally distributed and that there were significant scaling differences between the attributes. 
+Outliers were detected utilizing boxplots. To address skew, right-skewed attributes with a skew > 3 had their >90th percentile values replaced by the median and left-skewed attributes with a skew < 3 had their <10th percentile values replaced by the median. 
+The dataset was then normalized to (0,1) address scaling issues. 
+
+## Assumption Testing 
+
