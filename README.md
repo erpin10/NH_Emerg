@@ -1,12 +1,13 @@
 # Predicting the effect of nursing home quality measures on long-stay emergency department outpatient visits 
 author: Erica Pinto 
 
+## Repository Contents
+This repository contains the code required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States utilizing a Stepwise Linear Regression Model and a XGBoosted Random Forest Regression Model. 
+
 # Table of Contents
-1. [Repository Contents](#Repository_Contents)
+1. [Abstract](#Abstract)
 2. [Testing](#Something_else)
 
-## Repository Contents
-This repository contains the code and datasets required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States. 
 
 ## Abstract 
 ### Context
@@ -41,3 +42,25 @@ Model evaluation metrics will be:
 • Root Mean Square Error
 • Mean Absolute Error
 • R2
+
+## Datasets & Requirements 
+### Datasets 
+Data sets were obtained from the CMS website at the following addresses for the year 2020 (as available): 
+- CMS Medicare Claims Quality Measures: https://data.cms.gov/provider-data/dataset/ijh5-nb2v
+- CMS MDS Quality Measures: https://data.cms.gov/provider-data/dataset/djen-97ju
+- CMS Provider Information: https://data.cms.gov/provider-data/dataset/4pq5-n9py
+- CMS Survey Summary: https://data.cms.gov/provider-data/dataset/tbry-pc2d
+- CMS COVID-19 Nursing Home Data: https://data.cms.gov/covid-19/covid-19-nursing-home-data
+
+### Requirements 
+- Python 3.0 
+
+Required packages are as follows: 
+- Pandas
+- Numpy 
+- OS
+- Matplotlib.pyplot
+- Seaborn
+- Stasmodel.api 
+- Scipy.stats
+- XGBoost
