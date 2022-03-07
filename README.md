@@ -71,6 +71,8 @@ Required packages are as follows:
 - Scipy.stats
 - XGBoost
 
+XGBRFRegressor from the XGBoost package was used to conduct the Random Forest Regression with XGBoost.
+
 ## Data Collection 
 ### Datasets
 Datasets were obtained from the CMS website at the following addresses for the year 2020 (as available): 
