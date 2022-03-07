@@ -5,8 +5,10 @@ author: Erica Pinto
 This repository contains the code required to evaluate the impact of select nursing home quality measures on the long-stay emergency department outpatient visit rate within the United States utilizing a Stepwise Linear Regression Model and a XGBoosted Random Forest Regression Model. 
 
 # Table of Contents
-1. [Abstract](#Abstract)
-2. [Testing](#Something_else)
+1. [Abstract](#abstract)
+2. [Requirements](#req)
+3. [Datasets](#datasets)
+4. 
 
 
 ## Abstract 
@@ -43,16 +45,8 @@ Model evaluation metrics will be:
 • Mean Absolute Error
 • R2
 
-## Datasets & Requirements 
-### Datasets 
-Data sets were obtained from the CMS website at the following addresses for the year 2020 (as available): 
-- CMS Medicare Claims Quality Measures: https://data.cms.gov/provider-data/dataset/ijh5-nb2v
-- CMS MDS Quality Measures: https://data.cms.gov/provider-data/dataset/djen-97ju
-- CMS Provider Information: https://data.cms.gov/provider-data/dataset/4pq5-n9py
-- CMS Survey Summary: https://data.cms.gov/provider-data/dataset/tbry-pc2d
-- CMS COVID-19 Nursing Home Data: https://data.cms.gov/covid-19/covid-19-nursing-home-data
+## Requirements
 
-### Requirements 
 - Python 3.0 
 
 Required packages are as follows: 
@@ -64,3 +58,47 @@ Required packages are as follows:
 - Stasmodel.api 
 - Scipy.stats
 - XGBoost
+
+## Data Collection 
+### Datasets
+Data sets were obtained from the CMS website at the following addresses for the year 2020 (as available): 
+- CMS Medicare Claims Quality Measures: https://data.cms.gov/provider-data/dataset/ijh5-nb2v
+- CMS MDS Quality Measures: https://data.cms.gov/provider-data/dataset/djen-97ju
+- CMS Provider Information: https://data.cms.gov/provider-data/dataset/4pq5-n9py
+- CMS Survey Summary: https://data.cms.gov/provider-data/dataset/tbry-pc2d
+- CMS COVID-19 Nursing Home Data: https://data.cms.gov/covid-19/covid-19-nursing-home-data
+
+The following columns were extracted from the above datasets for construction of the dataset: 
+- Federal Provider Number
+- Provider Name
+- Ownership Type 
+- Number of Certified Beds
+- Average Number of Residents per Day
+- Long-Stay QM Rating
+- Total nursing staff turnover
+- Registered Nurse turnover 
+- Adjusted Nurse Aide Staffing Hours per Resident per Day                                            
+- Adjusted LPN Staffing Hours per Resident per Day                                                  
+- Adjusted RN Staffing Hours per Resident per Day
+- Number of Facility Reported Incidents
+- Number of Substantiated Complaints
+- Number of Citations from Infection Control Inspections
+- Percentage of high risk long-stay residents with pressure ulcers
+- Percentage of long-stay residents assessed and appropriately given the pneumococcal vaccine
+- Percentage of long-stay residents assessed and appropriately given the seasonal influenza vaccine
+- Percentage of long-stay residents experiencing one or more falls with major injury
+- Percentage of long-stay residents who have depressive symptoms 
+- Percentage of long-stay residents who lose too much weight
+- Percentage of long-stay residents who received an antianxiety or hypnotic medication
+- Percentage of long-stay residents who received an antipsychotic medication
+- Percentage of long-stay residents who were physically restrained
+- Percentage of long-stay residents whose ability to move independently worsened
+- Percentage of long-stay residents whose need for help with daily activities has increased
+- Percentage of long-stay residents with a catheter inserted and left in their bladder
+- Percentage of long-stay residents with a urinary tract infection
+- Percentage of low risk long-stay residents who lose control of their bowels or bladder
+- Total Number of Health Deficiencies
+- Total Number of Fire Safety Deficiencies
+- Confirmed COVID-19 Cases Per Occupied Beds
+- COVID-19 Deaths Per Occupied Beds
+- Number of outpatient emergency department visits per 1000 long-stay resident days
