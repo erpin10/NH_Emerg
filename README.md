@@ -307,3 +307,8 @@ Based on this model, the attributes with the most effect include: <br>
 The model was generally accurate in its predictions based on the MAE and has good performance based on the RMSE, however is only able to explain 27% of variation based on the R^2. 
 
 ### Random Forest Regression with XG Boost 
+
+
+## Evaluating Research Questions
+1. Which of the attributes affect outpatient emergency department visits from nursing homes for long-stay patients? 
+2. Is it possible to predict which of the above features impact return to outpatient emergency department incidence?
