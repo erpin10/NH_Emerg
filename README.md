@@ -21,6 +21,7 @@ This repository contains the code required to evaluate the impact of select nurs
 7. [Model Building](#model-building)
 8. [Model Testing](#model-testing)
 9. [Model Evaluation and Validation](#model-evaluation-and-validation)
+10. [Results](#results)
 
 # Abstract 
 ### Context
