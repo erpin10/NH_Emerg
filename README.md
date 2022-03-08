@@ -227,7 +227,7 @@ The remaining attributes had a p-value < 0.05:
 - Long-Stay QM Rating_3.0
 - Long-Stay QM Rating_4.0
 
-The final model has 16 attributees, with an R^2 of 0.293 or 29.3% of explainability. The F-Statistic remains signfiicant. See below for statsmodel summary: 
+The final model has 16 attributes, with an R^2 of 0.293 or 29.3% of explainability. The F-Statistic remains signficant. See below for statsmodel summary: 
 
 ![Final_Model_Summary](https://user-images.githubusercontent.com/99699157/157049424-3ba69e65-3ac3-4ec8-b415-d399d8141cfe.png)
 
@@ -293,3 +293,16 @@ The feature importance score indicates how valuable each feature was in construc
 - Percentage of low risk long-stay residents who lose control of their bowels or bladder
 - Total nursing staff turnover 
 - Adjusted RN Staffing Hours per Resident per Day
+
+# Results
+### Stepwise Linear Regression
+
+Based on this model, the attributes with the most effect include: <br>
+- Average Residents per Day: With a unit increase in Average Residents per Day, there is a -0.144 decrease in the Emergency Department Visit Rate. <br>
+- Long-Stay QM Rating (1.0): With a unit increase in the 1/5 (or lowest) Long-Stay QM Rating, there is an increase in the Emergency Department Visit Rate. <br>
+- Percentage of long-stay residents whose need for help with daily activities has increase: With a unit increase in the percentage of long-stay residents who need additional help, there is a -0.1155 decrease in Emergency Dpeartment Visit Rate.<br>
+- Percentage of long-stay resident who received an antipsychotic medication: With a unit increase in the percentage of patients receiving a anti-psychotic medication, there is a -0.1043 decrease in the Emergency Department Visit rate. <br>
+
+The model was generally accurate in its predictions based on the MAE and has good performance based on the RMSE, however is only able to explain 27% of variation based on the R^2. 
+
+### Random Forest Regression with XG Boost 
